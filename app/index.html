@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myFoursquareApp" ng-strict-di>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoursquareApp</title>
+  <meta name="viewport" >
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <header class="headerpage-" align="center">
+    <h2><b>Explore Foursquare</b></h2>
+    </header>
+    <div class="container" ng-controller="VenueListCtrl as listCtrl" align="center">
+        <input class="input-lg" ng-disabled="!coords" ng-model="searchText" ng-keyup="search()" type="search" placeholder="Type search keyword..">
+        <table class="table table-striped" ng-hide="searchResult.length == 0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Distance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="venue in searchResult.response.venues">
+                    <td>{{venue.name}}</td>
+                    <td>{{venue.location.address}}</td>
+                    <td>{{venue.location.distance}} m</td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-show="!coords"><h3>Oops..location is not available!</h3></div>
+    </div>
+  <script src="js/lib/angular.js"></script>
+  <script src="js/lib/angular-resource.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

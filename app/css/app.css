@@ -1,0 +1,15 @@
+.list-group-item {
+    background-color: #e8e8e8;
+    border-radius: 4px;
+    border-style: double;
+}
+
+li {
+    margin: 3px;
+    font-size: medium;
+}
+
+input {
+    width: 80%;
+    margin-bottom: 10px;
+}
